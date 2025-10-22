@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:api-gateway="http://www.mulesoft.org/schema/mule/api-gateway" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/mule/api-gateway/current/mule-api-gateway.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="8758f3ac-0a1b-4bd8-8874-e79fb51bc0f5" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+<!-- 	<api-gateway:autodiscovery apiId="20496614" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="1155f3e4-f12c-44b1-bbb8-12595bedc8d2" flowRef="hellomuleFlow" /> -->
+	<flow name="hellomuleFlow" doc:id="340f200f-16fa-4319-9194-c4d02c0c7066" >
+		<http:listener doc:name="Listener" doc:id="c8a36e62-d75b-400c-92df-2daa24ad3e02" config-ref="HTTP_Listener_config" path="/hellomule"/>
+		<set-payload value="Hello Mule" doc:name="Set Payload" doc:id="fbfafd53-81a3-4e0d-b36c-39d3d18b536f" />
+		<logger level="INFO" doc:name="Flow Ended" doc:id="473751ac-4296-4f70-8851-9995a009e035" message="############### Flow Ended ########################"/>
+	</flow>
+</mule>
