@@ -39,7 +39,7 @@
 						<connectedAppClientId>${ap.conn.app.client.id}</connectedAppClientId>
 						<connectedAppClientSecret>${ap.conn.app.client.secret}</connectedAppClientSecret>
 						<connectedAppGrantType>client_credentials</connectedAppGrantType>
-						<applicationName>${project.name}</applicationName>
+						<applicationName>hellomule</applicationName>
 						<environment>${app.env}</environment>
 						<target>Cloudhub-US-East-2</target>
 						<replicas>1</replicas>
