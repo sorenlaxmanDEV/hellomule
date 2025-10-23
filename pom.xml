@@ -69,6 +69,16 @@
 		</dependency>
 	</dependencies>
 
+	<distributionManagement>
+		<repository>
+			<id>Repository</id>
+			<name>Super-Organization-Repository</name>
+			<url>https://maven.anypoint.mulesoft.com/api/v3/organizations/${project.groupId}/maven</url>
+			<layout>default</layout>
+		</repository>
+	</distributionManagement>
+
+
 	<repositories>
 		<repository>
 			<id>anypoint-exchange-v3</id>
