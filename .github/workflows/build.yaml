@@ -65,10 +65,16 @@ jobs:
       env:
         USERNAME: ${{ secrets.anypoint_platform_username }}
         PASSWORD: ${{ secrets.anypoint_platform_password }}
+        CONNECTED_CLIENT_ID: ${{ secrets.connected_client_id }}
+        CONNECTED_CLIENT_SECRET: ${{ secrets.connected_client_secret }}
+        ENVIRONMENT: ${{ secrets.anypoint_environment }}
       run: |
         set -euo pipefail
         artifactName=$(ls *.jar | head -n1)
-        mvn deploy -DmuleDeploy \
+        mvn clean deploy -DmuleDeploy \
           -Dmule.artifact="$artifactName" \
           -Danypoint.username="$USERNAME" \
-          -Danypoint.password="$PASSWORD"
+          -Danypoint.password="$PASSWORD" \
+          -Dap.conn.app.client.id="$CONNECTED_CLIENT_ID" \
+          -Dap.conn.app.client.secret="$CONNECTED_CLIENT_SECRET" \
+          -Dapp.env="$ENVIRONMENT"

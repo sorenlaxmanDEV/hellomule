@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.mycompany</groupId>
+	<groupId>b0263b3a-f386-4186-8a62-b7ac3da6e337</groupId>
 	<artifactId>hellomule</artifactId>
 	<version>1.0.0</version>
 	<packaging>mule-application</packaging>
@@ -14,7 +16,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<app.runtime>4.9.0</app.runtime>
-		<mule.maven.plugin.version>3.1.1</mule.maven.plugin.version>
+		<mule.maven.plugin.version>4.3.0</mule.maven.plugin.version>
 	</properties>
 
 	<build>
@@ -30,7 +32,23 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<classifier>---- select project type ----</classifier>
+					<cloudhub2Deployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<provider>MC</provider>
+						<muleVersion>${app.semver}</muleVersion>
+						<connectedAppClientId>${ap.conn.app.client.id}</connectedAppClientId>
+						<connectedAppClientSecret>${ap.conn.app.client.secret}</connectedAppClientSecret>
+						<connectedAppGrantType>client_credentials</connectedAppGrantType>
+						<applicationName>${app.name}</applicationName>
+						<environment>${app.env}</environment>
+						<target>Cloudhub-US-East-2</target>
+						<replicas>1</replicas>
+						<vCores>0.1</vCores>
+						<properties>
+							<anypoint.platform.client_id>${anypoint.username}</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>${anypoint.password}</anypoint.platform.client_secret>
+						</properties>
+					</cloudhub2Deployment>
 				</configuration>
 			</plugin>
 		</plugins>
