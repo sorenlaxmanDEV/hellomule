@@ -79,4 +79,4 @@ jobs:
           -Dap.conn.app.client.id="$CONNECTED_CLIENT_ID" \
           -Dap.conn.app.client.secret="$CONNECTED_CLIENT_SECRET" \
           -Dapp.env="$ENVIRONMENT" \
-          -Dap.name="$NAME"
+          -Dapp.name="$NAME"
