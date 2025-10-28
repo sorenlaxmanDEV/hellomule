@@ -78,5 +78,5 @@ jobs:
           -Danypoint.password="$PASSWORD" \
           -Dap.conn.app.client.id="$CONNECTED_CLIENT_ID" \
           -Dap.conn.app.client.secret="$CONNECTED_CLIENT_SECRET" \
-          -Dapp.name="$APP_NAME" \
+          -DappName="$APP_NAME" \
           -Dapp.env="$ENVIRONMENT"
