@@ -44,6 +44,7 @@
 						<target>Cloudhub-US-East-2</target>
 						<replicas>1</replicas>
 						<vCores>0.1</vCores>
+						<skipDeploymentVerification>${skipDeploymentVerification}</skipDeploymentVerification>
 						<properties>
 							<anypoint.platform.client_id>${anypoint.username}</anypoint.platform.client_id>
 							<anypoint.platform.client_secret>${anypoint.password}</anypoint.platform.client_secret>
