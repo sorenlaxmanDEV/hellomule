@@ -47,7 +47,7 @@ jobs:
 
     steps:    
     
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - uses: actions/cache@v3
       with:
@@ -56,7 +56,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
     
-    - uses: actions/download-artifact@master
+    - uses: actions/download-artifact@v4
       with:
         name: artifacts
     
