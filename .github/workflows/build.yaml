@@ -68,15 +68,15 @@ jobs:
         CONNECTED_CLIENT_ID: ${{ secrets.connected_client_id }}
         CONNECTED_CLIENT_SECRET: ${{ secrets.connected_client_secret }}
         ENVIRONMENT: ${{ secrets.anypoint_environment }}
-        NAME: "hellomule"
+        APP_NAME: ${{ secrets.app_name }}
       run: |
         set -euo pipefail
         artifactName=$(ls *.jar | head -n1)
-        mvn clean deploy -DmuleDeploy \
+        mvn -X -e clean deploy -DmuleDeploy \
           -Dmule.artifact="$artifactName" \
           -Danypoint.username="$USERNAME" \
           -Danypoint.password="$PASSWORD" \
           -Dap.conn.app.client.id="$CONNECTED_CLIENT_ID" \
           -Dap.conn.app.client.secret="$CONNECTED_CLIENT_SECRET" \
-          -Dapp.env="$ENVIRONMENT" \
-          -Dapp.name="$NAME"
+          -Dapp.name="$APP_NAME" \
+          -Dapp.env="$ENVIRONMENT"
