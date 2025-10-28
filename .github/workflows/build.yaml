@@ -68,7 +68,7 @@ jobs:
         CONNECTED_CLIENT_ID: ${{ secrets.connected_client_id }}
         CONNECTED_CLIENT_SECRET: ${{ secrets.connected_client_secret }}
         ENVIRONMENT: ${{ secrets.anypoint_environment }}
-        NAME: ${{ secrets.name }}
+        NAME: "hellomule"
       run: |
         set -euo pipefail
         artifactName=$(ls *.jar | head -n1)
