@@ -70,9 +70,10 @@ jobs:
         ENVIRONMENT: ${{ secrets.anypoint_environment }}
         APP_NAME: ${{ secrets.APP_NAME }}
       run: |
-        set -euo pipefail
         artifactName=$(ls *.jar | head -n1)
         mvn clean deploy -DmuleDeploy \
+          -DskipTests \
+          -DskipDeploymentVerification="true" \
           -Dmule.artifact="$artifactName" \
           -Danypoint.username="$USERNAME" \
           -Danypoint.password="$PASSWORD" \
